@@ -4,11 +4,6 @@ This is my Fastify-Based NodeJS API template, an attempt to create organized, ty
 The architecture aims to seamlessly integrate features like dependency injection, auto-generated documentation, auto-generated [react-query](https://tanstack.com/query/v3/) client, and comprehensive logging.
 
 - [License](#license)
-- [Setup](#setup)
-- [Usage](#usage)
-- [Architecture Overview](#architecture-overview)
-- [Managing Complex Services](#managing-complex-services)
-- [Conclusion](#conclusion)
 
 ## License
 
