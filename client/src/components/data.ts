@@ -1,10 +1,11 @@
-export interface ChessTurn {
-  white: string;
-  black: string;
-}
+export type UserColor = 'black' | 'white';
+
+export type VariationMoves = {
+  [key in UserColor]: string;
+};
 
 export interface IVariations {
-  [key: number]: ChessTurn[];
+  [key: number]: VariationMoves[];
 }
 
 export type Openings = 'Sicilian Defense' | 'Pirc Defence';
@@ -20,7 +21,8 @@ export const chessOpenings: ChessOpenings = {
       { white: 'b4', black: 'cxb4' },
       { white: 'a3', black: 'd5' },
       { white: 'exd5', black: 'Qxd5' },
-      { white: 'axb4', black: 'Qe5' },
+      { white: 'axb4', black: 'Qe5+' },
+      { white: 'Qe2', black: 'Qxa1' },
     ],
   },
 

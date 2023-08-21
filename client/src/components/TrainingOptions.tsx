@@ -4,15 +4,19 @@ import { Dispatch, SetStateAction } from 'react';
 
 import { Button, Grid } from '@mui/material';
 
-import { chessOpenings, Openings } from './data';
+import { chessOpenings, Openings, UserColor, VariationMoves } from './data';
 
 export default function TraningOptions({
-  setTrainingOpening,
+  setTrainingVariation,
+  setSelectedOption,
+  userColorState,
 }: {
-  setTrainingOpening: Dispatch<SetStateAction<Openings | undefined>>;
+  setTrainingVariation: Dispatch<SetStateAction<VariationMoves[] | undefined>>;
+  setSelectedOption: Dispatch<SetStateAction<Openings | undefined>>;
+  userColorState: [UserColor | undefined, Dispatch<SetStateAction<UserColor | undefined>>];
 }) {
   const options = Object.keys(chessOpenings) as Openings[];
-
+  const [, setUserColor] = userColorState;
   return (
     <>
       <Grid item xs={12} justifyContent={'space-between'}>
@@ -21,7 +25,11 @@ export default function TraningOptions({
             variant="contained"
             key={option}
             style={{ margin: 2 }}
-            onClick={() => setTrainingOpening(option)}
+            onClick={() => {
+              setTrainingVariation(chessOpenings[option][1]);
+              setSelectedOption(option);
+              setUserColor('black');
+            }}
           >
             {option}
           </Button>
